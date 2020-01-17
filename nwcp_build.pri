@@ -13,7 +13,7 @@ contains(TEMPLATE, lib) {
 include(./nwcp_variables.pri)
 NWCP_INSTALL_DIR = $$(NWCP_ROOT)
 isEmpty(NWCP_INSTALL_DIR) {
-    NWCP_INSTALL_DIR = $${PWD}/../nwcp_dev
+    NWCP_INSTALL_DIR = $$PWD/../nwDeployed
     message("NWCP_INSTALL = $${NWCP_INSTALL_DIR} (export NWCP_ROOT to change it)" )
 }
 
@@ -28,5 +28,6 @@ target.path  = $$NWCP_INSTALL_DIR/lib
 INSTALLS     += target headers
 TARGET  = $${TARGET}$${DEBUG_SUFFIX_STR}
 VERSION = $${NWCP_VERSION}
-DESTDIR = $${PWD}/lib
+
+include($$PWD/../nwDeployed/nwDeployed.pri)
 
